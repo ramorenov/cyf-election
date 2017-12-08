@@ -1,0 +1,291 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="code-your-future-js-core-3-project">Code Your Future JS Core 3 Project</h1>
+<h2 id="installation">Installation</h2>
+<p>Clone this repo using the command</p>
+<p><code>git clone https://github.com/Buroni/cyf-election.git</code></p>
+<h2 id="introduction">Introduction</h2>
+<p>After a recent referendum, London has gained independence from the rest of the UK. 
+A snap election will be held in a month to decide who will be the leader of the new country.
+You have been asked to implement an electronic voting system in javascript which allows the 
+government to easily register voters into the system, filter out invalid votes and calculate who
+the winning candidate is.</p>
+<p>The two files you will be working on during this project are the following:</p>
+<ul>
+<li><code>election.js</code> - Contains all of the functions required to carry out the election process. From part 2
+onwards this file will be modularised into classes.</li>
+<li><code>index.html</code> - Displays the election results. From part 2 onwards this file will also take user input.</li>
+<li><code>voters.json</code> - The &quot;real&quot; voter data. This file will not appear until the election occurs at part 3.</li>
+</ul>
+<p>In order to make the project more manageable, it has been broken down into three parts. They are outlined below.</p>
+<ul>
+<li>Part 1: write the functions required to carry out the election process, and allow the results
+with a small amount of sample data to be displayed on a HTML page.</li>
+<li>Part 2: re-organise the functions into three classes: <code>Voter</code>, <code>Candidate</code> and <code>Election</code>, and improve
+the voter validation process. Allow new voters to be inputted via a HTML page.</li>
+<li>Part 3 (election time): run the election on a large population stored as a JSON file.</li>
+</ul>
+<h3 id="voter-data-format">Voter Data Format</h3>
+<p>Have a look at the sample voter data provided in
+<code>election.js</code>. You will notice that the voters are stored as an array of objects,
+and that their voting card is an array of integers. Each integer in the <code>votingCard</code> array represents a
+candidate id where each ID has double the weight of the ID on its right. </p>
+<p>So for example, if my <code>votingCard</code> array is <code>[1,3,2]</code> I cast 1 vote for candidate 1, I cast 0.5 votes for 
+candidate 3 and 0.025 votes for candidate 2.</p>
+<h3 id="candidate-data-format">Candidate Data Format</h3>
+<p>Now look at the sample candidate data. Like the voter data, each candidate is stored as an object
+but with some different properties. You should also notice that unlike the voter data which is stored as
+an <em>array of objects</em>, the candidate data is stored as an <em>object containing objects</em>. Each object
+key represents the ID of the candidate. For example the candidate <em>Tamara Faiza</em> has candidate ID 1.</p>
+<p>The <code>numVotes</code> property in each candidate object represents the number of votes that candidate received in the election.
+When a new instance of a candidate is created, their <code>numVotes</code> property should always be 0.</p>
+<h2 id="part-1">Part 1</h2>
+<h3 id="exercise-1">Exercise 1</h3>
+<p>Candidates should also be able to vote in the election, however right now the format of <code>candidates</code> isn&apos;t such 
+that we can just concatenate it onto the <code>votingPopulation</code> array. </p>
+<p>Write a function <code>candidatesObjToArray</code> which takes
+the <code>candidates</code> object as input, and returns an array of candidates which can be joined onto <code>votingPopulation</code>.</p>
+<blockquote>
+<p>Hint: You might find the <code>map</code> function useful.</p>
+</blockquote>
+<h3 id="exercise-2">Exercise 2</h3>
+<p>Before we worry about how to calculate the election results, we need to introduce some
+definition of an invalid voting card. Right now we regard a voting card as invalid if it
+contains more than two votes, or contains multiple votes for the same candidate.</p>
+<p>Write a function <code>filterInvalidVoters</code> which
+removes any voters who have voted for more than 2 people, or have voted for the same person twice.
+This function should input the <code>allVoters</code> array, and return an array containing only valid voters.</p>
+<h3 id="exercise-3">Exercise 3</h3>
+<p>Right now all candidates have <code>numVotes</code> set to 0. Write a function <code>runElection</code> which takes the <code>votingPopulation</code> and
+<code>candidates</code> as arguments. The function should change the <code>numVotes</code> property of each candidate based on the voting cards
+of the voters, and return a candidates object with each candidate having an updated <code>numVotes</code> value.</p>
+<h3 id="exercise-4">Exercise 4</h3>
+<p>Write a function <code>getWinner</code> which taken the updated candidates object as input, and returns the candidate with the most votes if there is no draw. If there
+is a draw, the function should return <code>null</code>.</p>
+<h3 id="exercise-5">Exercise 5</h3>
+<p>Write a function <code>printWinnerMessage</code> whose input is the winner previously calculated by <code>getWinner</code>. This function should print &quot;The election was a draw&quot; if a draw occurred,
+otherwise it should print a message including the winner&apos;s name and how many votes he/she received.</p>
+<h3 id="exercise-6">Exercise 6</h3>
+<p>You have permission from the government to change people&apos;s voting cards
+because the real election hasn&apos;t occurred yet.</p>
+<p>If the previous 5 exercises were completed correctly, you should see a message saying that <em>Tamara Faiza</em> has won the election with 3.5 votes. Change 
+<em>Nour al-Din</em>&apos;s voting card from <code>[4,1]</code> to <code>[4,3]</code> and you should notice that a draw has occurred. </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"readme.md","mtime":"2017-12-08T13:48:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T11:18:02.759Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
