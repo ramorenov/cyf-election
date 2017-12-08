@@ -15,7 +15,7 @@ You have been asked to implement an electronic voting system in javascript which
 government to easily register voters into the system, filter out invalid votes and calculate who
 the winning candidate is.
 
-The two files you will be working on during this project are the following:
+The three files you will be working on during this project are the following:
 
 * `election.js` - Contains all of the functions required to carry out the election process. From part 2
 onwards this file will be modularised into classes.
