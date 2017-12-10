@@ -1,0 +1,25 @@
+{
+  "name": "cyf-election",
+  "version": "1.0.0",
+  "description": "## Installation",
+  "main": "election.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "npm run test -- --coverage",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeYourFuture/cyf-election.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeYourFuture/cyf-election/issues"
+  },
+  "homepage": "https://github.com/CodeYourFuture/cyf-election#readme",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
