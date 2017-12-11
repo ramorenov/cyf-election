@@ -67,3 +67,11 @@ candidates = runElection(validVoters, candidates);
 
 let winner = getWinner(candidates);
 
+module.exports = {
+  candidatesObjToArray,
+  filterInvalidVoters,
+  runElection,
+  getWinner,
+  winnerMessage
+}
+
