@@ -4,7 +4,7 @@
 
 Clone this repo using the command
 
-`git clone https://github.com/Buroni/cyf-election.git`
+`git clone https://github.com/CodeYourFuture/cyf-election.git`
 
 
 ## Introduction
@@ -80,7 +80,7 @@ of the voters, and return a candidates object with each candidate having an upda
 
 ### Exercise 4
 
-Write a function `getWinner` which taken the updated candidates object as input, and returns the candidate with the most votes if there is no draw. If there
+Write a function `getWinner` which takes the updated candidates object as input, and returns the candidate with the most votes if there is no draw. If there
 is a draw, the function should return `null`.
 
 ### Exercise 5
