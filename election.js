@@ -6,21 +6,55 @@
  * 1 - Convert candidates object to array
  */
 function candidatesObjToArray(candidates) {
+    // var result = Object.keys(candidates).map(function(key) {
+        
+        
+        // return [Number(key), candidates[key]];
+    //   });
+     var result = [];
+     for(let i = 1 ; i<5; i++){
+         result.push(candidates[i]);
+         
+     }
+    return result;
+      
+      
+    }
+    
+    
 
-}
 
 /**
  * 2 - Remove any voters who have voted for more than 2 people, or have voted for the same person twice.
 */
 function filterInvalidVoters(voters) {
+        var valideCast = voters.filter(function(voter) {
+          
+        if(voter.votingCard.length <= 2 ){ 
+            if(voter.votingCard[0]!== voter.votingCard[1]){
 
-}
+            return voter;
+            }
+            
+          } 
+        
+       })  
+       return valideCast;
+    }
+
+        
+
+
+    
+
+
 
 /**
  * 3 - Add up all the votes cast by the voting population. Note that for two adjacent votes in the vote array,
  * the right vote counts for half of the left vote.
  */
 function runElection(voters, candidates) {
+  
 
 }
 
