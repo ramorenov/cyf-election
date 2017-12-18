@@ -131,7 +131,7 @@ Write a class `Election` which models the election. An election is performed by 
 should input and store an array of valid voters and an array of candidates, with the people in each array being the same as in part 1. The class should also
 have a `winner` variable used to store the winner.
 
-The `Election` class should also contain three functions; `runElection()`, `getWinner()` and `printWinnerMessage()`. The `runElection()` function should act the same way as in part 1,
+The `Election` class should also contain three functions: `runElection()`, `getWinner()` and `printWinnerMessage()`. The `runElection()` function should act the same way as in part 1,
 this time altering the voting cards of the `candidates` class variable. The function `getWinner()` should also be as in part 1, this time setting the `winner`
 class variable after the winner is calculated. `printWinnerMessage()` should print a message as before including who won, and how many votes he/she received.
 
