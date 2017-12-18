@@ -104,7 +104,7 @@ If the previous 5 exercises were completed correctly, you should see a message s
 ## Part 2
 
 This part builds upon the functions you designed in the previous part. You will change your election system to use classes instead of being a loose
-set of functions and objects, however the functionality of the voting system apart from the stretch goals should be the same.
+set of functions and objects, however the functionality of the voting system should be the same.
 
 The javascript code for this part should be written in `election-part2.js`.
 
