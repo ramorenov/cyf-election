@@ -128,7 +128,7 @@ initialised as `new Candidate('Tamara Faiza', 46, 'Pizza Party', [1,1])`.
 ### Exercise 3
 
 Write a class `Election` which models the election. An election is performed by a group of voters and a group of candidates, so the `Election` class
-should input and store an array of valid voters and an array of candidates, with the people in each array being the same as in part 2. The class should also
+should input and store an array of valid voters and an array of candidates, with the people in each array being the same as in part 1. The class should also
 have a `winner` variable used to store the winner.
 
 The `Election` class should also contain three functions; `runElection()`, `getWinner()` and `printWinnerMessage()`. The `runElection()` function should act the same way as in part 1,
