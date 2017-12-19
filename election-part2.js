@@ -1,11 +1,12 @@
-function filterInvalidVoters(voters) {
-    /* Your code from part 1 here */
-}
+// Importing the functions from what you did in part 1
 
-
-function candidatesObjToArray(candidates) {
-    /* Your code from part 1 here */
-}
+const {
+    candidatesObjToArray,
+    filterInvalidVoters,
+    runElection,
+    getWinner,
+    winnerMessage,
+} = require('./election');
 
 /**
  * 1 - Write a Voter class modelling a member of the population who votes in the election.
@@ -38,4 +39,6 @@ let validVoters = filterInvalidVoters(allVoters);
 
 let election = new Election(validVoters, candidates);
 
-election.runElection();
+election.runElection(); // Example of how runElection() can be called.
+
+console.log(election.printWinnerMessage()); // Example of
