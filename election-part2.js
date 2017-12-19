@@ -1,7 +1,10 @@
-// Importing some of the functions from what you did in part 1
+// Importing the functions from what you did in part 1.
 const {
     candidatesObjToArray,
-    filterInvalidVoters
+    filterInvalidVoters,
+    runElection,
+    getWinner,
+    winnerMessage,
 } = require('./election');
 
 /**
