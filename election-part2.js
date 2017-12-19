@@ -40,4 +40,4 @@ let election = new Election(validVoters, candidates);
 
 election.runElection(); // Example of how runElection() can be called.
 
-console.log(election.printWinnerMessage()); // Example of
+console.log(election.printWinnerMessage()); // Example of how the winner message can be printed.
