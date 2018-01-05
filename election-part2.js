@@ -28,7 +28,7 @@ const {
 let votingPopulation = [];
 
 
-// Include your candidates array here.
+// Include your candidates object here.
 let candidates = {};
 
 
