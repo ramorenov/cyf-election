@@ -29,7 +29,7 @@ let votingPopulation = [];
 
 
 // Include your candidates array here.
-let candidates = [];
+let candidates = {};
 
 
 let allVoters = votingPopulation.concat(candidatesObjToArray(candidates));
