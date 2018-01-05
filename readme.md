@@ -120,7 +120,7 @@ initialised as `new Voter('Jane Finnegan', 19, [1,3])`.
 Write a class `Candidate` which `extends` voter. Since candidates are voters, the candidate object should also have variables for name, age and votingCard.
 However a candidate has some extended properties: variables storing the party he/she belongs to and the number of votes received.
 
-After creating the class, use the `new` keyword to initialise all of the candidates in the `candidates` array. For example, Tamara Faiza should be
+After creating the class, use the `new` keyword to initialise all of the candidates in the `candidates` object. For example, Tamara Faiza should be
 initialised as `new Candidate('Tamara Faiza', 46, 'Pizza Party', [1,1])`.
 
 > Hint: Recall the `extends` keyword and `super` function from [week 11](https://codeyourfuture.github.io/syllabus-master/js-core-3/week-11/lesson.html).
