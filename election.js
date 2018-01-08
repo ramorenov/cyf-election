@@ -53,9 +53,22 @@ function filterInvalidVoters(voters) {
  * 3 - Add up all the votes cast by the voting population. Note that for two adjacent votes in the vote array,
  * the right vote counts for half of the left vote.
  */
-function runElection(voters, candidates) {
-  
+function runElection(validVoters, candidates) {
+  validVoters.forEach(voter => {
+      const firstCandidateId = voter.votingCard[0]
+      const secondCandidateId = voter.votingCard[1]
+    //   voter.votingCard.forEach(vote => {
+        //   console.log(vote)
+          candidates[firstCandidateId].numVotes +=1;
+          candidates[secondCandidateId].numVotes += 0.5;
+          
+        //   console.log(candidates[]);
+       
 
+      
+      });
+      return candidates;
+      
 }
 
 /**
@@ -64,7 +77,17 @@ function runElection(voters, candidates) {
  * Desired return value: {name: "Tamara Faiza", age: 46, party: "Pizza Party", numVotes: 3}
  */
 function getWinner(candidates) {
+    let max = 0;
+    let maxCandidate = null;
+    const candidatesArray = candidatesObjToArray(candidates);
+    candidatesArray.forEach(candidate =>{ 
+        if(candidate.numVotes > max){
+            max = candidate.numVotes;
+            maxCandidate =  candidate;
+        }
+    })
 
+    return maxCandidate;
 }
 
 /**
@@ -72,7 +95,10 @@ function getWinner(candidates) {
  * he/she received
  */
 function winnerMessage(winner) {
-
+    // winner.forEach(maxwinner =>{ 
+        console.log(winner)
+        return  `${winner.name} has won the election with ${winner.numVotes} votes!`
+    // })
 }
 
 // A sample population of a small number of voters, stored as an array
