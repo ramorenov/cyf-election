@@ -178,9 +178,6 @@ declarations just like part 2, but this time there should be 200 voters and 10 c
 
 Note again that `candidates` is given as an array, but your code works with `candidates` as an object. You will need to make the appropriate conversion here.
 
-The election process should run as normal without having to change any more code. In this part we are only interested in changing the data we use
-for the candidates and voters, not the way in which we runn the election process -- you have already done the work for that.
-
 ### Exercise 4
 
 Run your code with the new data you should find the the winner is `Eli Wang`, with `26.5` votes.
