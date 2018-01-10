@@ -44,12 +44,12 @@ class Election {
     constructor(validVoters,candidates) {
         this.validVoters = validVoters;
         this.candidates = candidates;
-        this.winner = null;
+        this.winner = " ";
     }
 
     runElection() {
         this.candidates = runElection(this.validVoters, this.candidates);
-        //  this.getWinner();
+          this.getWinner();
     }
     
     
