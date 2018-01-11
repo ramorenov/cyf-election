@@ -10,6 +10,7 @@ const {
 /**
  * 1 - Write a Voter class modelling a member of the population who votes in the election.
  */
+<<<<<<< HEAD
  class Voter{
      constructor(name, age, votingCard){
         this.name = name;
@@ -17,11 +18,15 @@ const {
         this.votingCard = votingCard;    
      }
  }
+=======
+
+>>>>>>> upstream/master
 
 /**
  * 2 - Write a Candidate class modelling a candidate in the election. Candidates are also voters (they can vote for themselves, or anyone else).
  * However they have some extra properties.
  */
+<<<<<<< HEAD
 class Candidate extends Voter{
     constructor(name, age, votingCard, party, numVotes){
         super(name, age, votingCard);
@@ -29,10 +34,14 @@ class Candidate extends Voter{
         this.numVotes = 0;
     }
 }
+=======
+
+>>>>>>> upstream/master
 
 /**
  * 3 - Write an Election class which models the election.
  */
+<<<<<<< HEAD
 class Election{
     constructor(validVoters, candidates){
         this.validVoters = validVoters;
@@ -69,6 +78,18 @@ let candidates = {
 	3: new Candidate('Clay Roderick', 54, [3,4], 'Flat Earth Party'),
 	4: new Candidate('Nour al-Din', 32, [4,1], 'Pizza Party')
 }
+=======
+
+
+
+// Include your votingPopulation array here.
+let votingPopulation = [];
+
+
+// Include your candidates object here.
+let candidates = {};
+
+>>>>>>> upstream/master
 
 let allVoters = votingPopulation.concat(candidatesObjToArray(candidates));
 
