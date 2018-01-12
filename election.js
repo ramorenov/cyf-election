@@ -68,7 +68,7 @@ function winnerMessage(winner) {
     if(winner != null) {
         return `Congratulation to ${winner.name} for winning the election with the total number of votes of ${winner.numVotes}!`;
     }else {
-        return `The election is seem to be draw and noone has won the election!`;
+        return `The election seems to be a draw and noone has won the election!`;
     }
 }
 
