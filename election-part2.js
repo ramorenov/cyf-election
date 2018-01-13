@@ -1,4 +1,4 @@
-// Importing the functions from what you did in part 1.
+
 const {
     candidatesObjToArray,
     filterInvalidVoters,
@@ -6,6 +6,33 @@ const {
     getWinner,
     winnerMessage,
 } = require('./election');
+
+//document.getElementById('fetchMe').addEventListener('click',fetchData);
+
+
+const fetch = require('node-fetch');
+// let candidates = {
+//     1 :new Candidate ('Tamara Faiza',46, [1,1], 'Pizza Party'),
+//     2 :new Candidate ('Aylin Duke', 39,[2,2],  'Foam Party'),
+//     3 :new Candidate('Clay Roderick',54, [3,4],  'Flat Earth Party'),
+//     4 :new Candidate( 'Nour al-Din',32, [4,1], 'Pizza Party')
+// };
+function fetchElectionData() {
+    fetch("http://www.mocky.io/v2/5a55224b2d000088425b1ed8")
+        .then(response => response.json())
+        .then(data => {
+            const candidates = {};
+            for(var i =1; i< candidates.length;i++){
+        candidates += `i :new Candidate (${candidates[i].name} ,${candidates[i].age} , ${candidates[i].votingCard} , ${candidates[i].party})`;
+            }
+            })
+        .catch(err => console.log(err));
+        };
+       
+
+        fetchElectionData();
+
+
 
 /**
  * 1 - Write a Voter class modelling a member of the population 
@@ -62,9 +89,18 @@ class Election {
         return  winnerMessage(this.winner);
     }
 }
+// After the data has been fetched, change your votingPopulation 
+// array to be an array of Voter objects and your candidates object 
+// to be composed of Candidate objects. This involves using the new 
+// Voter and new Candidate declarations just like part 2, but this 
+// time there should be 200 voters and 10 candidates.
 
 // Include your votingPopulation array here.
 let votingPopulation = [
+    // fetchElectionData()
+    // this.votingCard
+    // this.age
+    // this.name
 new Voter('Jane Finnegan', 19, [1,3]),
 new Voter('Norman Beracha', 35, [3,4]),
 new Voter('Salome Kadek', 22, [2,1,3]),
@@ -74,12 +110,7 @@ new Voter('Sam MacKinnon', 59, [1,4])
 
 
 // Include your candidates object here.
-let candidates = {
-    1 :new Candidate ('Tamara Faiza',46, [1,1], 'Pizza Party'),
-    2 :new Candidate ('Aylin Duke', 39,[2,2],  'Foam Party'),
-    3 :new Candidate('Clay Roderick',54, [3,4],  'Flat Earth Party'),
-    4 :new Candidate( 'Nour al-Din',32, [4,1], 'Pizza Party')
-};
+
 
 
 let allVoters = votingPopulation.concat(candidatesObjToArray(candidates));
@@ -91,3 +122,5 @@ let election = new Election(validVoters, candidates);
 election.runElection(); // Example of how runElection() can be called.
 
 console.log(election.printWinnerMessage()); // Example of how the winner message can be printed.
+
+

@@ -1,7 +1,6 @@
 /**
 * CYF JS core 3 election project
 */
-
 /**
  * 1 - Convert candidates object to array
  */
@@ -84,6 +83,8 @@ var maxVote = 0;
 function winnerMessage(winner) {
 return winner.name + ' has won the election with ' + winner.numVotes + ' votes!';
 }
+
+
 /*
 // A sample population of a small number of voters, stored as an array
 let votingPopulation = [
