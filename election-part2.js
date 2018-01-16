@@ -250,7 +250,7 @@ btnpart3.addEventListener('click', fetchElectionData)
 
 // fetch data
 function fetchElectionData (){
-    fetch('http://www.mocky.io/v2/5a55224b2d000088425b1ed8')
+    fetch('https://www.mocky.io/v2/5a55224b2d000088425b1ed8')
     .then(res => res.json())
     .then(data => getAllVoters(data))
     .then(voterValid => filterInvalidVoters(voterValid))
