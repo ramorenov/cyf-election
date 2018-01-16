@@ -114,12 +114,7 @@ Write a class `Voter` which can be used to create a new voter object. As before,
 After creating the class, use the `new` keyword to initialise all of the voters in the `votingPopulation` array. For example, Jane Finnegan should be
 initialised as `new Voter('Jane Finnegan', 19, [1,3])`.
 
-<<<<<<< HEAD
-`### Exercise 2
-=======
-
 ### Exercise 2
->>>>>>> upstream/master
 
 Write a class `Candidate` which `extends` voter. Since candidates are voters, the candidate object should also have variables for name, age and votingCard.
 However a candidate has some extended properties: variables storing the party he/she belongs to and the number of votes received.
@@ -169,7 +164,7 @@ and voters similar to those that you encountered in part 1.
 Note in particular that `"candidates"` is an array of objects, not an object of objects like in your implementation. Each candidate object in this array
 has an attribute `id`, which corresponds to the object keys in the `candidates` object used in parts 1 and 2.
 
-### Exercise 2
+### Exercise 2               
 
 Write a function `fetchElectionData` which fetches the json data provided to you. You should print the data to make sure that your fetch
 function works.

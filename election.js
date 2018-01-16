@@ -14,6 +14,13 @@ function candidatesObjToArray(candidates) {
     return arr;
 }
 
+function candidatesObjToArray(candidates){
+    var arrOfCandidates = [];
+    Object.keys(candidates).map(function(candidateId){
+        arrOfCandidates.push(candidates[candidateId]);
+    });
+    return arrOfCandidates;
+}
 
 /**
  * 2 - Remove any voters who have voted for more than 2 people, or have voted for the same person twice.
@@ -37,32 +44,68 @@ function filterInvalidVoters(voters) {
  * the right vote counts for half of the left vote.
  */
 
-function runElection(validVoters, candidates) {
-    for (let i = 0; i < validVoters.length; i++) {
-        var voterCast = validVoters[i].votingCard
-        for (let j = 0; j < voterCast.length; j++)
-            if (voterCast[j] === voterCast[0]) {
-                candidates[voterCast[j]].numVotes += 1;
-            } else {
-                candidates[voterCast[j]].numVotes += 0.5;
-            }
+// function runElection(validVoters, candidates) {
+//     for (let i = 0; i < validVoters.length; i++) {
+//         var voterCast = validVoters[i].votingCard;
+//         for (let j = 0; j < voterCast.length; j++){
+//             if (voterCast[j] === voterCast[0]) {
+//                 candidates[voterCast[j]].numVotes += 1;
+//             }   else {
+//                 candidates[voterCast[j]].numVotes += 0.5;
+//             }        
+//         }
+//     }
+//     return candidates;
+// }
+
+function runElection(validVoters, candidates){
+    for(var i = 0; i < validVoters.length; i++){
+      var votingCard = validVoters[i].votingCard;
+      for(let j = 0; j < votingCard.length; j++){
+        if(j === 0){
+          candidates[votingCard[j]].numVotes += 1;
+        } else if (j === 1) {
+          candidates[votingCard[j]].numVotes += 0.5;
+        }
+      }
     }
     return candidates;
-}
-
-
+  }  
 /**
  * 4 - After an election has been run, return the winner
  *
  * Desired return value: {name: "Tamara Faiza", age: 46, party: "Pizza Party", numVotes: 3}
  */
+// function getWinner(candidates) {
+//     var hasMaxVote = 0;
+//     var theWinner = [] ;
+//     var candidatesToArray = candidatesObjToArray(candidates);
+//     for (var i = 0; i < candidatesToArray.length; i++) {
+//         if (candidatesToArray[i].numVotes > hasMaxVote) {
+//             hasMaxVote = candidatesToArray[i].numVotes;
+//             theWinner.push(candidatesToArray[i]);
+//         } else if (candidatesToArray[i].numVotes === hasMaxVote){
+//             theWinner.push (candidatesToArray[i]);
+//         }
+//     }
+//     if (theWinner.length = 2){
+//         return theWinner[1]
+//     }else {
+//         return theWinner[theWinner.length-1]
+//     }
+// }
+
+
 function getWinner(candidates) {
     var hasMaxVote = 0;
     var theWinner;
-    for (var i = 1; i < 5; i++) {
-        if (candidates[i].numVotes > hasMaxVote) {
-            hasMaxVote = candidates[i].numVotes;
-            theWinner = candidates[i];
+    var candidatesToArray = candidatesObjToArray(candidates);
+    for (var i = 0; i < candidatesToArray.length; i++) {
+        if (candidatesToArray[i].numVotes > hasMaxVote) {
+            hasMaxVote = candidatesToArray[i].numVotes;
+            theWinner = candidatesToArray[i];
+        } else if (candidatesToArray[i].numVotes === hasMaxVote){
+            theWinner = candidatesToArray[i];
         }
     }
     return theWinner;
@@ -109,3 +152,4 @@ module.exports = {
     getWinner,
     winnerMessage
 }
+
