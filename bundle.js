@@ -248,8 +248,11 @@ let allCandidates, allVoter, fetchVoters;
 let fetchCandidates = [ ];
 let btnpart3 = document.querySelector('.btn-part3');
 btnpart3.addEventListener('click', fetchElectionData)
+
+// fetch data
 function fetchElectionData (){
-    fetch('http://www.mocky.io/v2/5a55224b2d000088425b1ed8')
+    const url = 'https://www.mocky.io/v2/5a55224b2d000088425b1ed8';
+    fetch(url)
     .then(res => res.json())
     .then(data => getAllVoters(data))
     .then(voterValid => filterInvalidVoters(voterValid))
