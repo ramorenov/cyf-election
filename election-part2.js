@@ -23,8 +23,8 @@ class Voter {
  * However they have some extra properties.
  */
 
-class candidate extends Voter {
-    constructor(name, age, votingCard, party, numVotes) {
+class Candidate extends Voter {
+    constructor(name, age, votingCard, party) {
         super(name, age, votingCard);
         this.party = party;
         this.numVotes = 0;

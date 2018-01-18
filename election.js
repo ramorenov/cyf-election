@@ -29,13 +29,12 @@ function filterInvalidVoters(voters) {
  * the right vote counts for half of the left vote.
  */
 function runElection(voters, candidates) {
-
     voters.forEach(function(voter) {
-        for(let i = 1; i <= candidates.length; i++) {
+        for(let i = 1; i <= Object.keys(candidates).length; i++) {
             if(voter.votingCard[0] === i) {
-                candidates.numVotes += 1;
+                candidates[i].numVotes += 1;
             }else if(voter.votingCard[1] === i) {
-                candidates.numVotes += 0.5;
+                candidates[i].numVotes += 0.5;
             }
         }
     });
@@ -48,10 +47,10 @@ function runElection(voters, candidates) {
  * Desired return value: {name: "Tamara Faiza", age: 46, party: "Pizza Party", numVotes: 3}
  */
 function getWinner(candidates) {
-    let winner,
-        largestVotes = 0;
+    let winner = '';
+    let largestVotes = 0;
     
-    for(let i = 1; i <= candidates.length; i++) {
+    for(let i = 1; i <= Object.keys(candidates).length; i++) {
         if(candidates[i].numVotes > largestVotes) {
             largestVotes = candidates[i].numVotes;
             winner = candidates[i];
@@ -95,6 +94,8 @@ let allVoters = votingPopulation.concat(candidatesObjToArray(candidates));
 let validVoters = filterInvalidVoters(allVoters);
 
 candidates = runElection(validVoters, candidates);
+
+console.log(candidates);
 
 let winner = getWinner(candidates);
 
