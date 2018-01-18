@@ -95,8 +95,7 @@ function getWinner(candidates) {
  * he/she received
  */
 function winnerMessage(winner) {
-    // winner.forEach(maxwinner =>{ 
-        console.log(winner)
+    // winner.forEach(maxwinner =>{
         return  `${winner.name} has won the election with ${winner.numVotes} votes!`
     // })
 }
@@ -126,6 +125,8 @@ let validVoters = filterInvalidVoters(allVoters);
 candidates = runElection(validVoters, candidates);
 
 let winner = getWinner(candidates);
+
+console.log(winner);
 
 module.exports = {
   candidatesObjToArray,

@@ -23,24 +23,25 @@ class Voter {
  * However they have some extra properties.
  */
 
-class candidate extends Voter {
+class Candidate extends Voter {
   constructor(name, age, votingCard, party, numVotes) {
+    super(name, age, votingCard);
     this.party = party;
     this.numVotes = numVotes;
-    super(name, age, votingCard);
   }
 }
 /**
  * 3 - Write an Election class which models the election.
  */
 class Election {
-  constructor(validVoters, candidate, winner) {
-    this.validVoters;
-    this.candidates;
-    this.winner;
+  constructor(validVoters, candidate) {
+    this.validVoters = validVoters;
+    this.candidates = candidate;
+    this.winner = '';
   }
   runElection() {
-    this.candidates = runElection(this.winner);
+      this.candidates = runElection(this.validVoters, this.candidates);
+      this.getWinner();
   }
   getWinner() {
     this.winner = getWinner(this.candidates);
@@ -52,7 +53,7 @@ class Election {
 
 // Include your votingPopulation array here.
 let votingPopulation = [
-  new voter("Jane Finnegan", 19, [1, 3]),
+  new Voter("Jane Finnegan", 19, [1, 3]),
   new Voter("Norman Beracha", 35, [3, 4]),
   new Voter("Salome Kadek", 22, [2, 1, 3]),
   new Voter("Wei Li", 19, [1, 2]),
@@ -61,10 +62,10 @@ let votingPopulation = [
 
 // Include your candidates object here.
 let candidates = {
-  1: new candidate("Tamara Faiza", 46, [1, 1], "Pizza Party", 0),
-  2: new candidate("Aylin Duke", 39, [2, 2], "Foam Party", 0),
-  3: new candidate("Clay Roderick", 54, [3, 4], "Flat Earth Party", 0),
-  4: new candidate("Nour al-Din", 32, [4, 1], "Pizza Party", 0)
+  1: new Candidate("Tamara Faiza", 46, [1, 1], "Pizza Party", 0),
+  2: new Candidate("Aylin Duke", 39, [2, 2], "Foam Party", 0),
+  3: new Candidate("Clay Roderick", 54, [3, 4], "Flat Earth Party", 0),
+  4: new Candidate("Nour al-Din", 32, [4, 1], "Pizza Party", 0)
 };
 
 let allVoters = votingPopulation.concat(candidatesObjToArray(candidates));
@@ -76,6 +77,7 @@ let election = new Election(validVoters, candidates);
 election.runElection(); // Example of how runElection() can be called.
 
 console.log(election.printWinnerMessage()); // Example of how the winner message can be printed.
+
 function addCandidate(name) {
   console.info(name);
 }
@@ -83,7 +85,7 @@ function addCandidate(name) {
 function addCandidateFromInput() {
   const candidateNameTxt = document.querySelector("#CandidateName");
   console.info(candidateNameTxt);
-  //const newCandidate = new candidate()
+  //const newCandidate = new Candidate()
   const selectCandidate = document.querySelector("#selectCandidate");
   const newCandy = document.createElement("option");
   newCandy.text = candidateNameTxt.value;
