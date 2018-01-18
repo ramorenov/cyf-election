@@ -3,5 +3,34 @@
     <script src="./election-part2.js"></script>
 </head>
 
-<body>
+<body onload="javascript:init()">
+    <div>
+        
+        <h3>Candidates</h3>
+        <select  id="selectCandidate" multiple size="10">
+        <option>Tamara Faiza</option>
+        <option>Ayli Duke</option>
+        <option>Clay Roderick</option>
+        <option>Nour al-Din</option>
+        </select >
+        <button id="removeCandidate">Remove</button><br/>
+        Name<input id="CandidateName"/>
+        <button id="addCandidate"> Add</button>
+        
+    
+       <ul>Voters
+           <li>Ali</li>
+           <li></li>
+           <li></li>
+
+       </ul>
+    </div>
+    <div>
+        <ul>Voters</ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <button id="addVoter">Add</button>
+        <button id="removeVoter>Remove</button>
+    </div>
 </body>
