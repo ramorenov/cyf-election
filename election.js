@@ -6,22 +6,14 @@
  * 1 - Convert candidates object to array
  */
 function candidatesObjToArray(candidates) {
-    let candidatesArr = Object.keys(candidates).map(function(key) {
-        return candidates[key];
-    });
-    return candidatesArr;
+
 }
 
 /**
  * 2 - Remove any voters who have voted for more than 2 people, or have voted for the same person twice.
 */
 function filterInvalidVoters(voters) {
-    let validVoters = voters.filter(function(voter) {
-        if(voter.votingCard.length <= 2 && voter.votingCard[0] != voter.votingCard[1]) {
-            return voter;
-        }
-    });
-    return validVoters;
+
 }
 
 /**
@@ -30,16 +22,6 @@ function filterInvalidVoters(voters) {
  */
 function runElection(voters, candidates) {
 
-    voters.forEach(function(voter) {
-        for(let i = 1; i <= candidates.length; i++) {
-            if(voter.votingCard[0] === i) {
-                candidates.numVotes += 1;
-            }else if(voter.votingCard[1] === i) {
-                candidates.numVotes += 0.5;
-            }
-        }
-    });
-    return candidates;
 }
 
 /**
@@ -48,16 +30,7 @@ function runElection(voters, candidates) {
  * Desired return value: {name: "Tamara Faiza", age: 46, party: "Pizza Party", numVotes: 3}
  */
 function getWinner(candidates) {
-    let winner,
-        largestVotes = 0;
-    
-    for(let i = 1; i <= candidates.length; i++) {
-        if(candidates[i].numVotes > largestVotes) {
-            largestVotes = candidates[i].numVotes;
-            winner = candidates[i];
-        }
-    }
-    return winner;
+
 }
 
 /**
@@ -65,11 +38,7 @@ function getWinner(candidates) {
  * he/she received
  */
 function winnerMessage(winner) {
-    if(winner != null) {
-        return `Congratulation to ${winner.name} for winning the election with the total number of votes of ${winner.numVotes}!`;
-    }else {
-        return `The election seems to be a draw and noone has won the election!`;
-    }
+
 }
 
 // A sample population of a small number of voters, stored as an array
