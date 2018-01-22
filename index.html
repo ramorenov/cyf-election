@@ -1,7 +1,55 @@
-<!DOCTYPE html>
-<head>
-    <script src="./election-part2.js"></script>
-</head>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="election.css">
+    </head>
+    <body>
+        <header>
+            <h1>London's General Election </h1>
+            <p>
+                After a recent referendum, London has gained independence from the rest of the UK. In this website you will
+                find information relative to the snap election that have been held this month to appoint the leader of 
+                the new country.
+            </p>
+        </header>
+        <main>
+            <div class="candidate"> </div>
+            <div class="voter"> </div>
+        </main>
+        <div class="result">
+            <div>
+                <p class="result-p">  Find the result of the election</p> <button class="btn-result">Part 2</button>            
+            </div>
+            <div>
+                <p class="result-3">  Find the result of the election part 3</p> <button class="btn-part3">Part 3</button>            
+            </div>
+        </div>
+        <div class="form-data">
+            <form action="">
+                <div class="insertCandidate">
+                    <h1>Candidate form</h1>
+                    <input type="text" placeholder="Name..." class="name">
+                    <input type="text" placeholder="Age..." class="age">
+                    <input type="text" placeholder="Party..." class="party">
+                    <input type="password" placeholder="Voting Card..." class="card">
+                    <input type="submit" class="btn-submit">
+                </div>
+            </form>
+            <form action="" class="form-action">
+                <h1>Voter form</h1>
+                <div class="insertVoter">
+                    <input type="text" placeholder="Name..." class="name">
+                    <input type="text" placeholder="Age..." class="age">
+                    <input type="password" placeholder="Voting Card..." class="card">
+                    <input type="text" style="display:hidden">
+                    <input type="submit" class="btn-submit">
+                </div>
+            </form>
+        </div>
 
-<body>
-</body>
+        <script src="bundle.js"></script>    
+    </body>
+</html>

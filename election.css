@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #f3f0f3;
+    font-size: 19px;
+    color: #0b0c0c;
+    line-height: 150%;
+}
+
+h1{color: #4c5e6f;}
+
+header,
+main,
+.result,
+.table-head,
+.form-data {
+    display: flex;
+    padding: 0 2%;
+}
+
+header{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+
+main{
+    justify-content: space-between;
+}
+
+.candidate,
+.voter,
+form{
+    width: 48%;
+    border: 1px solid #dadada66;
+    border-radius: 4px;
+    box-shadow: -12px 9px 17px 0px rgba(0, 0, 0, 0.1);
+}
+
+header p{
+    margin-top: 4%;
+    padding-bottom: 3%;
+}
+
+.candidate h1,
+.voter h1,
+form h1{
+    text-align: center;
+    font-size: 150%;
+    font-weight: 600;
+    background: #dedddc;
+    color: #888c90;
+    padding: 1.5rem; 
+}
+
+.table{
+    width: 100%;
+    border-collapse:collapse;
+}
+
+table td, table th {
+    color: #2b686e;
+    padding: .6rem;
+    font-size: 120%;
+    font-weight: 200;
+  }
+
+  table th{text-transform: uppercase;}
+
+  table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  table tr:nth-child(2n) {
+    background-color: white;
+  }
+  
+  .result{
+    padding-bottom: 2ren;
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    }
+  .party{
+    color: #5fca53;
+  }
+
+  .result div {
+      text-align: center;
+      margin-bottom: 4rem;
+  }
+  .btn-result,
+  .btn-part3{
+    padding: .1rem 1.5rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  .form-data{
+      justify-content: space-around;
+      padding-bottom: 5rem;
+  }
+  .form-data input,
+  .form-data button{
+      padding: 1rem;
+  }
+  .results{
+    text-align: center;
+    font-size: 250%;
+    padding: 2rem;
+    color: #646b05;
+    font-weight: 600;
+    text-shadow: 1px -1px 5px #848a2cba
+  }
+
+  .insertCandidate,
+  .insertVoter{
+      display: flex;
+      flex-direction: column;
+  }
+  @media screen and (max-width: 750px){
+      body{
+          font-size: 15px;
+      }
+      main{
+          flex-direction: column;
+      }
+      .candidate, .voter {
+        width: 100%;
+        margin-top: 1.5%;
+      }
+      .results{
+        font-size: 100%;
+      }
+  }
