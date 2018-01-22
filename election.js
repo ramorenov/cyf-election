@@ -1,74 +1,46 @@
 /**
-* CYF JS core 3 election project
-*/
+ * CYF JS core 3 election project
+ */
 
 /**
  * 1 - Convert candidates object to array
  */
 function candidatesObjToArray(candidates) {
-    // var result = Object.keys(candidates).map(function(key) {
-        
-        
-        // return [Number(key), candidates[key]];
-    //   });
-     var result = [];
-     for(let i = 1 ; i<5; i++){
-         result.push(candidates[i]);
-         
-     }
+    var result = Object.keys(candidates).map(function(key) {
+        return String(key), candidates[key];
+    });
     return result;
-      
-      
-    }
-    
-    
-
+}
 
 /**
  * 2 - Remove any voters who have voted for more than 2 people, or have voted for the same person twice.
-*/
+ */
 function filterInvalidVoters(voters) {
-        var valideCast = voters.filter(function(voter) {
-          
-        if(voter.votingCard.length <= 2 ){ 
-            if(voter.votingCard[0]!== voter.votingCard[1]){
-
-            return voter;
-            }
-            
-          } 
-        
-       })  
-       return valideCast;
+    var validVoters =[];
+    for(i=0; i<voters.length; i++){
+        if(voters[i].votingCard.length <= 2 && voters[i].votingCard[0]!==voters[i].votingCard[1]){
+            validVoters.push(voters[i])
+        }
     }
-
-        
-
-
-    
-
-
+    return validVoters
+}
 
 /**
  * 3 - Add up all the votes cast by the voting population. Note that for two adjacent votes in the vote array,
  * the right vote counts for half of the left vote.
  */
-function runElection(validVoters, candidates) {
-  validVoters.forEach(voter => {
-      const firstCandidateId = voter.votingCard[0]
-      const secondCandidateId = voter.votingCard[1]
-    //   voter.votingCard.forEach(vote => {
-        //   console.log(vote)
-          candidates[firstCandidateId].numVotes +=1;
-          candidates[secondCandidateId].numVotes += 0.5;
-          
-        //   console.log(candidates[]);
-       
+function runElection(voters, candidates) {
 
-      
-      });
-      return candidates;
-      
+    voters.forEach(voter => {
+        let votingCard = voter.votingCard;
+        let weight = 1;
+        votingCard.forEach(candidateId => {
+            candidates[candidateId].numVotes += weight;
+            weight /= 2;
+        });
+    });
+
+    return candidates
 }
 
 /**
@@ -77,27 +49,25 @@ function runElection(validVoters, candidates) {
  * Desired return value: {name: "Tamara Faiza", age: 46, party: "Pizza Party", numVotes: 3}
  */
 function getWinner(candidates) {
-    let max = 0;
-    let maxCandidate = null;
-    const candidatesArray = candidatesObjToArray(candidates);
-    candidatesArray.forEach(candidate =>{ 
-        if(candidate.numVotes > max){
-            max = candidate.numVotes;
-            maxCandidate =  candidate;
-        }
-    })
 
-    return maxCandidate;
+    var index;
+    var numOfVotes = Object.keys(candidates).map(key => candidates[key].numVotes);
+    var max= Math.max(...numOfVotes);
+    for(i=1; i<=numOfVotes.length; i++){
+        if(candidates[i].numVotes === max){
+            index=candidates[i]
+        }
+    }
+    return index;
 }
+
 
 /**
  * 5 - Return a message including the name of the winner, and how many votes
  * he/she received
  */
 function winnerMessage(winner) {
-    // winner.forEach(maxwinner =>{
-        return  `${winner.name} has won the election with ${winner.numVotes} votes!`
-    // })
+    return `${winner.name} has won the election with ${winner.numVotes} votes!`
 }
 
 // A sample population of a small number of voters, stored as an array
@@ -126,13 +96,11 @@ candidates = runElection(validVoters, candidates);
 
 let winner = getWinner(candidates);
 
-console.log(winner);
 
 module.exports = {
-  candidatesObjToArray,
-  filterInvalidVoters,
-  runElection,
-  getWinner,
-  winnerMessage
+    candidatesObjToArray,
+    filterInvalidVoters,
+    runElection,
+    getWinner,
+    winnerMessage
 }
-
