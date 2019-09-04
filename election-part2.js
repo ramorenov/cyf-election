@@ -10,13 +10,12 @@ const {
 /**
  * 1 - Write a Voter class modelling a member of the population who votes in the election.
  */
+
 class Voter {
   constructor(name, age, votingCard) {
-    return {
-      name,
-      age,
-      votingCard
-    };
+    this.name = name;
+    this.age = age;
+    this.votingCard = votingCard;
   }
 }
 
@@ -24,18 +23,28 @@ class Voter {
  * 2 - Write a Candidate class modelling a candidate in the election. Candidates are also voters (they can vote for themselves, or anyone else).
  * However they have some extra properties.
  */
+
 class Candidate extends Voter {
   constructor(name, age, votingCard, party, numVotes = 0) {
     super(name, age, votingCard);
-    return {
-      name,
-      age,
-      votingCard,
-      party,
-      numVotes
-    };
+    this.party = party;
+    this.numVotes = numVotes;
   }
 }
+
+// class Candidate extends Voter {
+//   constructor(name, age, votingCard, party, numVotes = 0) {
+//     super(name, age, votingCard);
+//     let id = Object.keys(candidates).length;
+//     return (candidates[id + 1] = {
+//       name,
+//       age,
+//       votingCard,
+//       party,
+//       numVotes
+//     });
+//   }
+// }
 
 /**
  * 3 - Write an Election class which models the election.
@@ -45,12 +54,25 @@ class Election {
   constructor(voters, candidates) {
     this.voters = voters;
     this.candidates = candidates;
+    this.winner;
+    this.electionResult;
   }
-  get runElection(voters, candidates) {
-    console.log(`test run election ${voters}`);
+
+  runElection() {
+    this.electionResult = runElection(this.voters, this.candidates);
+    return this.electionResult;
   }
-  //   get getWinner();
-  //   get printWinnerMessage();
+
+  getWinner() {
+    //console.log(this.runElection);
+    this.winner = getWinner(this.runElection);
+
+    return this.winner;
+  }
+
+  printWinnerMessage() {
+    winnerMessage(getWinner());
+  }
 }
 
 // Include your votingPopulation array here.
@@ -62,6 +84,7 @@ votingPopulation.push(new Voter("Wei Li", 19, [1, 2]));
 votingPopulation.push(new Voter("Sam MacKinnon", 59, [1, 4]));
 
 //console.log(votingPopulation);
+
 // Include your candidates object here.
 let candidates = {};
 candidates[1] = new Candidate("Tamara Faiza", 46, [1, 1], "Pizza Party");
@@ -74,7 +97,8 @@ candidates[4] = new Candidate("Nour al - Din", 32, [4, 3], "Pizza Party");
 let allVoters = votingPopulation.concat(candidatesObjToArray(candidates));
 
 let validVoters = filterInvalidVoters(allVoters);
-console.log(validVoters);
+
+//console.log(validVoters);
 
 let election = new Election(validVoters, candidates);
 

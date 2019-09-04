@@ -63,9 +63,9 @@ function getWinner(candidates) {
  */
 function winnerMessage(winner) {
   if (winner === null) {
-    console.log("The election was a draw");
+    return "The election was a draw";
   } else {
-    console.log(`The winner is ${winner.name} with ${winner.numVotes} votes`);
+    return `${winner.name} has won the election with ${winner.numVotes} votes!`;
   }
 }
 
@@ -105,7 +105,7 @@ let candidates = {
   4: {
     name: "Nour al-Din",
     age: 32,
-    votingCard: [4, 3],
+    votingCard: [4, 1],
     party: "Pizza Party",
     numVotes: 0
   }
